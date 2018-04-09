@@ -1,0 +1,104 @@
+2018-04-09 10:02:57,315 [Worker-1] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Collecting project info '/pom.xml' /home/r/raynaudp/M1/S2/devops/projet_final/maven_project/pom.xml
+2018-04-09 10:03:19,692 [Worker-1] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: devops.rrce.projet:maven_project:0.0.1-SNAPSHOT @ /home/r/raynaudp/M1/S2/devops/projet_final/maven_project/pom.xml.
+2018-04-09 10:03:29,709 [Worker-1] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /maven_project/src/main/java
+2018-04-09 10:03:29,718 [Worker-1] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /maven_project/src/test/java
+2018-04-09 10:03:30,378 [Worker-1] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Imported and configured 1 project(s) in 33 sec
+2018-04-09 10:03:31,243 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-04-09 10:03:31,243 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/r/raynaudp/M1/S2/devops/projet_final/maven_project/src/main/resources
+2018-04-09 10:03:31,244 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-04-09 10:03:31,244 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/r/raynaudp/M1/S2/devops/projet_final/maven_project/src/test/resources
+2018-04-09 10:04:01,292 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-04-09 10:04:01,292 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/r/raynaudp/M1/S2/devops/projet_final/maven_project/src/main/resources
+2018-04-09 10:04:01,293 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-04-09 10:04:01,293 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/r/raynaudp/M1/S2/devops/projet_final/maven_project/src/test/resources
+2018-04-09 10:04:17,123 [Worker-13] INFO  o.e.m.i.launch.MavenLaunchDelegate - /home/r/raynaudp/M1/S2/devops/projet_final/maven_project
+2018-04-09 10:04:17,124 [Worker-13] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn  -B clean
+2018-04-09 10:04:20,385 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-04-09 10:04:20,386 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/r/raynaudp/M1/S2/devops/projet_final/maven_project/src/main/resources
+2018-04-09 10:04:20,386 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-04-09 10:04:20,386 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/r/raynaudp/M1/S2/devops/projet_final/maven_project/src/test/resources
+2018-04-09 10:04:52,376 [Worker-13] INFO  o.e.m.i.launch.MavenLaunchDelegate - /home/r/raynaudp/M1/S2/devops/projet_final/maven_project
+2018-04-09 10:04:52,376 [Worker-13] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn  -B install
+2018-04-09 10:04:58,871 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-04-09 10:04:58,871 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/r/raynaudp/M1/S2/devops/projet_final/maven_project/src/main/resources
+2018-04-09 10:04:58,873 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-04-09 10:04:58,874 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/r/raynaudp/M1/S2/devops/projet_final/maven_project/src/test/resources
+2018-04-09 10:08:10,663 [main] INFO  o.e.m2e.actions.ExecutePomAction - Creating new launch configuration
+2018-04-09 10:08:18,209 [Worker-0] INFO  o.e.m.i.launch.MavenLaunchDelegate - /home/r/raynaudp/M1/S2/devops/projet_final/maven_project
+2018-04-09 10:08:18,210 [Worker-0] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn  -B package
+2018-04-09 10:08:19,221 [Worker-15] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: devops.rrce.projet:maven_project:0.0.1-SNAPSHOT @ /home/r/raynaudp/M1/S2/devops/projet_final/maven_project/pom.xml.
+2018-04-09 10:08:19,567 [Worker-15] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/junit/junit/4.8.2/junit-4.8.2.pom
+2018-04-09 10:08:19,588 [Worker-15] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/junit/junit/4.8.2/junit-4.8.2.pom
+2018-04-09 10:08:19,620 [Worker-15] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/junit/junit/4.8.2/junit-4.8.2.jar
+2018-04-09 10:08:20,174 [Worker-15] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/junit/junit/4.8.2/junit-4.8.2.jar
+2018-04-09 10:08:20,665 [Worker-15] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-04-09 10:08:20,667 [Worker-15] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/r/raynaudp/M1/S2/devops/projet_final/maven_project/src/main/resources
+2018-04-09 10:08:20,669 [Worker-15] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-04-09 10:08:20,671 [Worker-15] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/r/raynaudp/M1/S2/devops/projet_final/maven_project/src/test/resources
+2018-04-09 10:08:22,387 [Worker-15] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-04-09 10:08:22,387 [Worker-15] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/r/raynaudp/M1/S2/devops/projet_final/maven_project/src/main/resources
+2018-04-09 10:08:22,399 [Worker-15] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-04-09 10:08:22,400 [Worker-15] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/r/raynaudp/M1/S2/devops/projet_final/maven_project/src/test/resources
+2018-04-09 10:10:39,317 [main] INFO  o.e.m2e.actions.ExecutePomAction - Using existing launch configuration
+2018-04-09 10:10:39,417 [Worker-0] INFO  o.e.m.i.launch.MavenLaunchDelegate - /home/r/raynaudp/M1/S2/devops/projet_final/maven_project
+2018-04-09 10:10:39,417 [Worker-0] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn  -B package
+2018-04-09 10:10:45,414 [main] INFO  o.e.m2e.actions.ExecutePomAction - Creating new launch configuration
+2018-04-09 10:10:48,730 [Worker-2] INFO  o.e.m.i.launch.MavenLaunchDelegate - /home/r/raynaudp/M1/S2/devops/projet_final/maven_project
+2018-04-09 10:10:48,731 [Worker-2] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn  -B compile
+2018-04-09 10:21:09,383 [Worker-20] INFO  o.e.m.i.launch.MavenLaunchDelegate - /home/r/raynaudp/M1/S2/devops/projet_final/maven_project
+2018-04-09 10:21:09,384 [Worker-20] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn  -B generate-sources
+2018-04-09 10:21:10,393 [Worker-25] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-04-09 10:21:10,393 [Worker-25] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/r/raynaudp/M1/S2/devops/projet_final/maven_project/src/main/resources
+2018-04-09 10:21:10,395 [Worker-25] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-04-09 10:21:10,396 [Worker-25] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/r/raynaudp/M1/S2/devops/projet_final/maven_project/src/test/resources
+2018-04-09 10:21:22,647 [main] INFO  o.e.m2e.actions.ExecutePomAction - Creating new launch configuration
+2018-04-09 10:21:25,628 [Worker-24] INFO  o.e.m.i.launch.MavenLaunchDelegate - /home/r/raynaudp/M1/S2/devops/projet_final/maven_project
+2018-04-09 10:21:25,628 [Worker-24] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn  -B validate
+2018-04-09 10:21:34,101 [Worker-24] INFO  o.e.m.i.launch.MavenLaunchDelegate - /home/r/raynaudp/M1/S2/devops/projet_final/maven_project
+2018-04-09 10:21:34,102 [Worker-24] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn  -B generate-sources
+2018-04-09 10:21:41,732 [main] INFO  o.e.m2e.actions.ExecutePomAction - Creating new launch configuration
+2018-04-09 10:21:48,106 [Worker-20] INFO  o.e.m.i.launch.MavenLaunchDelegate - /home/r/raynaudp/M1/S2/devops/projet_final/maven_project
+2018-04-09 10:21:48,107 [Worker-20] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn  -B process-sources
+2018-04-09 10:21:55,700 [main] INFO  o.e.m2e.actions.ExecutePomAction - Creating new launch configuration
+2018-04-09 10:22:06,526 [Worker-15] INFO  o.e.m.i.launch.MavenLaunchDelegate - /home/r/raynaudp/M1/S2/devops/projet_final/maven_project
+2018-04-09 10:22:06,527 [Worker-15] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn  -B generate-resources
+2018-04-09 10:22:15,932 [main] INFO  o.e.m2e.actions.ExecutePomAction - Creating new launch configuration
+2018-04-09 10:22:22,598 [Worker-22] INFO  o.e.m.i.launch.MavenLaunchDelegate - /home/r/raynaudp/M1/S2/devops/projet_final/maven_project
+2018-04-09 10:22:22,598 [Worker-22] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn  -B process-ressources
+2018-04-09 10:22:39,701 [main] INFO  o.e.m2e.actions.ExecutePomAction - Creating new launch configuration
+2018-04-09 10:22:42,660 [Worker-22] INFO  o.e.m.i.launch.MavenLaunchDelegate - /home/r/raynaudp/M1/S2/devops/projet_final/maven_project
+2018-04-09 10:22:42,661 [Worker-22] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn  -B compile
+2018-04-09 10:26:50,681 [Worker-24] INFO  o.e.m.i.launch.MavenLaunchDelegate - /home/r/raynaudp/M1/S2/devops/projet_final/maven_project
+2018-04-09 10:26:50,683 [Worker-24] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn  -B compile
+2018-04-09 10:26:51,987 [Worker-15] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: devops.rrce.projet:maven_project:0.0.1-SNAPSHOT @ /home/r/raynaudp/M1/S2/devops/projet_final/maven_project/pom.xml.
+2018-04-09 10:26:52,418 [Worker-15] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-04-09 10:26:52,419 [Worker-15] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/r/raynaudp/M1/S2/devops/projet_final/maven_project/src/main/resources
+2018-04-09 10:26:52,422 [Worker-15] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-04-09 10:26:52,423 [Worker-15] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/r/raynaudp/M1/S2/devops/projet_final/maven_project/src/test/resources
+2018-04-09 10:34:36,603 [Worker-29] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: devops.rrce.projet:maven_project:0.0.1-SNAPSHOT @ /home/r/raynaudp/M1/S2/devops/projet_final/maven_project/pom.xml.
+2018-04-09 10:34:36,924 [Worker-29] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-04-09 10:34:36,924 [Worker-29] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/r/raynaudp/M1/S2/devops/projet_final/maven_project/src/main/resources
+2018-04-09 10:34:36,926 [Worker-29] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-04-09 10:34:36,927 [Worker-29] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/r/raynaudp/M1/S2/devops/projet_final/maven_project/src/test/resources
+2018-04-09 10:34:43,086 [Worker-22] INFO  o.e.m.i.launch.MavenLaunchDelegate - /home/r/raynaudp/M1/S2/devops/projet_final/maven_project
+2018-04-09 10:34:43,087 [Worker-22] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn  -B install
+2018-04-09 10:34:46,329 [Worker-29] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-04-09 10:34:46,330 [Worker-29] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/r/raynaudp/M1/S2/devops/projet_final/maven_project/src/main/resources
+2018-04-09 10:34:46,333 [Worker-29] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-04-09 10:34:46,334 [Worker-29] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/r/raynaudp/M1/S2/devops/projet_final/maven_project/src/test/resources
+2018-04-09 10:38:05,344 [Worker-33] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-04-09 10:38:05,344 [Worker-33] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/r/raynaudp/M1/S2/devops/projet_final/maven_project/src/main/resources
+2018-04-09 10:38:05,346 [Worker-33] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-04-09 10:38:05,346 [Worker-33] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/r/raynaudp/M1/S2/devops/projet_final/maven_project/src/test/resources
+2018-04-09 10:38:30,495 [Worker-33] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-04-09 10:38:30,496 [Worker-33] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/r/raynaudp/M1/S2/devops/projet_final/maven_project/src/main/resources
+2018-04-09 10:38:30,497 [Worker-33] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-04-09 10:38:30,497 [Worker-33] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/r/raynaudp/M1/S2/devops/projet_final/maven_project/src/test/resources
+2018-04-09 10:47:07,377 [Worker-33] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-04-09 10:47:07,378 [Worker-33] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/r/raynaudp/M1/S2/devops/projet_final/maven_project/src/main/resources
+2018-04-09 10:47:07,379 [Worker-33] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-04-09 10:47:07,379 [Worker-33] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/r/raynaudp/M1/S2/devops/projet_final/maven_project/src/test/resources
+2018-04-09 10:47:34,113 [Worker-22] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-04-09 10:47:34,113 [Worker-22] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/r/raynaudp/M1/S2/devops/projet_final/maven_project/src/main/resources
+2018-04-09 10:47:34,115 [Worker-22] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-04-09 10:47:34,115 [Worker-22] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/r/raynaudp/M1/S2/devops/projet_final/maven_project/src/test/resources

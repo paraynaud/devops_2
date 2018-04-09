@@ -268,3 +268,39 @@ org.eclipse.jgit.errors.MissingObjectException: Missing unknown dd709e2a450c9e63
 	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:608)
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1515)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1488)
+
+!ENTRY org.eclipse.core.net 1 0 2018-04-09 10:48:31.617
+!MESSAGE System property http.proxyHost is set to www-cache.ujf-grenoble.fr but should not be set.
+
+!ENTRY org.eclipse.core.net 1 0 2018-04-09 10:48:31.619
+!MESSAGE System property http.proxyPort is set to 3128 but should not be set.
+
+!ENTRY org.eclipse.core.net 1 0 2018-04-09 10:48:31.621
+!MESSAGE System property https.proxyHost is set to www-cache.ujf-grenoble.fr but should not be set.
+
+!ENTRY org.eclipse.core.net 1 0 2018-04-09 10:48:31.624
+!MESSAGE System property https.proxyPort is set to 3128 but should not be set.
+
+!ENTRY org.eclipse.core.net 1 0 2018-04-09 10:48:35.444
+!MESSAGE System property http.proxyHost is set to www-cache.ujf-grenoble.fr but should not be set.
+
+!ENTRY org.eclipse.core.net 1 0 2018-04-09 10:48:35.447
+!MESSAGE System property http.proxyPort is set to 3128 but should not be set.
+
+!ENTRY org.eclipse.core.net 1 0 2018-04-09 10:48:35.449
+!MESSAGE System property https.proxyHost is set to www-cache.ujf-grenoble.fr but should not be set.
+
+!ENTRY org.eclipse.core.net 1 0 2018-04-09 10:48:35.451
+!MESSAGE System property https.proxyPort is set to 3128 but should not be set.
+
+!ENTRY org.eclipse.core.net 1 0 2018-04-09 10:48:42.023
+!MESSAGE System property http.proxyHost is set to www-cache.ujf-grenoble.fr but should not be set.
+
+!ENTRY org.eclipse.core.net 1 0 2018-04-09 10:48:42.024
+!MESSAGE System property http.proxyPort is set to 3128 but should not be set.
+
+!ENTRY org.eclipse.core.net 1 0 2018-04-09 10:48:42.025
+!MESSAGE System property https.proxyHost is set to www-cache.ujf-grenoble.fr but should not be set.
+
+!ENTRY org.eclipse.core.net 1 0 2018-04-09 10:48:42.026
+!MESSAGE System property https.proxyPort is set to 3128 but should not be set.

@@ -102,3 +102,7 @@
 2018-04-09 10:47:34,113 [Worker-22] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/r/raynaudp/M1/S2/devops/projet_final/maven_project/src/main/resources
 2018-04-09 10:47:34,115 [Worker-22] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
 2018-04-09 10:47:34,115 [Worker-22] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/r/raynaudp/M1/S2/devops/projet_final/maven_project/src/test/resources
+2018-04-09 11:01:18,086 [Worker-40] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-04-09 11:01:18,087 [Worker-40] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/r/raynaudp/M1/S2/devops/projet_final/maven_project/src/main/resources
+2018-04-09 11:01:18,087 [Worker-40] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-04-09 11:01:18,088 [Worker-40] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/r/raynaudp/M1/S2/devops/projet_final/maven_project/src/test/resources

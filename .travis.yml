@@ -1,5 +1,6 @@
-language: javas
+language: java
 install:
+  - ls
   - cd projet_final
   - mvn clean verify
   - mvn install

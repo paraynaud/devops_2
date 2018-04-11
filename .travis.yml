@@ -1,3 +1,7 @@
+install:
+  - cd projet_final
+  - mvn clean verify
+  - mvn install
 deploy:
   language: java
   provider: pages
@@ -5,5 +9,5 @@ deploy:
   github-token: $GITHUB_TOKEN  # Set in travis-ci.org dashboard, marked secure
   keep-history: true
   sudo: enabled
-  on:
+  on:	
     branch: master

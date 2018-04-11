@@ -1,6 +1,8 @@
 language: java
 install:
   - mvn clean verify
+  - mvn test #déja fait dans le install
   - mvn install
-  - mvn test
+
+
 

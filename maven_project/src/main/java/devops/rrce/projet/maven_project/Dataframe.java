@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class Dataframe {
 	private ArrayList<Column<?>> columns;
+	private int size;
 	
 	public Dataframe (String[] labels, ArrayList<?>  ... data) throws Exception{
 		
@@ -20,8 +21,13 @@ public class Dataframe {
 			columns.add(new Column<Object>(labels[i],temp));
 		}
 		
+		size = data.length;
 	
-	}    
+	}
+	
+	public int getSize(){
+		return size;
+	}
 	
 
 }

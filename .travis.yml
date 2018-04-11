@@ -1,9 +1,10 @@
 language: java
 install:
   - ls
-  - cd projet_final
+  - cd maven_project
   - mvn clean verify
   - mvn install
+  - mvn test
 
 deploy:
   language: java

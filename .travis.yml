@@ -1,9 +1,17 @@
+language: java
+install:
+  - ls
+  - cd maven_project
+  - mvn clean verify
+  - mvn install
+  - mvn test
+
 deploy:
-	language: java
+  java -cp target/maven_project-0.0.1-SNAPSHOT.jar devops.rrce.projet.maven_project.App
   provider: pages
   skip-cleanup: true
   github-token: $GITHUB_TOKEN  # Set in travis-ci.org dashboard, marked secure
   keep-history: true
-	sudo: enabled
-  on:
+  sudo: enabled
+  on:	
     branch: master

@@ -1,0 +1,9 @@
+deploy:
+	language: java
+  provider: pages
+  skip-cleanup: true
+  github-token: $GITHUB_TOKEN  # Set in travis-ci.org dashboard, marked secure
+  keep-history: true
+	sudo: enabled
+  on:
+    branch: master

@@ -1,7 +1,9 @@
+language: javas
 install:
   - cd projet_final
   - mvn clean verify
   - mvn install
+
 deploy:
   language: java
   provider: pages

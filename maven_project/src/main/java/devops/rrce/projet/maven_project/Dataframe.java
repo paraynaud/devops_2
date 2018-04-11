@@ -45,11 +45,13 @@ public class Dataframe {
 
             String line;
 
+            int currentLine = 1;
             while( (line = br.readLine()) != null ) {
             	Boolean firstLine = true;
             	String[] parts = line.split(",");
             	
             	if(firstLine){
+            		//Add labels
             		firstLine = false;
 	            	for(String onePart : parts){
 	            		labels.add(onePart);
@@ -57,13 +59,31 @@ public class Dataframe {
             	}
             	else{
             		for(String onePart : parts){
-            			String type = "string";
+            			//Type checking of the parser
+            			String type = "int";
+            			Boolean point = false;
 	            		for(int i = 0; i<onePart.length(); i++){
 	            			char c = onePart.charAt(i);
-	            			if(!Character.isDigit(c))
+	            			if(!Character.isDigit(c)){
+	            				if(c == '.' && point == false){
+	            					point = true;
+	            				}
+	            				else{
+	            					type = "string";
+	            				}
+	            			}
 	            		}
+	            		if(point == true){
+	            			type = "float";
+	            		}
+	            		//Store it in right variable
+	            		if(type == "int"){
+	            			
+	            		}
+	            		
 	            	}
             	}
+            	currentLine++;
             }
 
         } catch (FileNotFoundException e) {

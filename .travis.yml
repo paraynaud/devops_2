@@ -1,7 +1,5 @@
 language: java
 install:
-  - ls
-  - cd maven_project
   - mvn clean verify
   - mvn install
   - mvn test

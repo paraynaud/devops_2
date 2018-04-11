@@ -19,10 +19,10 @@ public class DataframeTest {
 			labels = new String[]{ "MyString", "MyInteger", "MyFloat" };
 			l1 = new ArrayList<String>(Arrays.asList("oui", "non", "peut-etre"));
 			l2 = new ArrayList<Integer>(Arrays.asList(0, 1, 2));
-			l3 = new ArrayList<Object>(Arrays.asList("4", 4, 1.2));
+			l3 = new ArrayList<Object>(Arrays.asList("oui", 4, 1.2));
 	    }
 		@Test
-	    public void test1() {
+	    public void testNumberColumns() {
 			try{
 				Dataframe dt = new Dataframe(labels,l1,l2,l3);
 				assertEquals(dt.getSize(),3);
@@ -30,5 +30,4 @@ public class DataframeTest {
 				System.err.println(e.getMessage());
 			}	
 	    }
-		
 }

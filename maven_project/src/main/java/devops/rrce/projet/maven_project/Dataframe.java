@@ -33,9 +33,9 @@ public class Dataframe {
 	public Dataframe (String inputName) throws Exception{
 		
 		ArrayList<String> labels = new ArrayList<String>();
-		ArrayList<ArrayList<?>> data = new ArrayList<ArrayList<?>>();
+		ArrayList<ArrayList<Object>> data = new ArrayList<ArrayList<Object>>();
 		
-		File file = new File("example.txt");
+		File file = new File(inputName);
 
         BufferedReader br = null;
 
@@ -58,33 +58,55 @@ public class Dataframe {
 	            	}
             	}
             	else{
-            		for(String onePart : parts){
-            			//Type checking of the parser
-            			String type = "int";
-            			Boolean point = false;
-	            		for(int i = 0; i<onePart.length(); i++){
-	            			char c = onePart.charAt(i);
-	            			if(!Character.isDigit(c)){
-	            				if(c == '.' && point == false){
-	            					point = true;
-	            				}
-	            				else{
-	            					type = "string";
-	            				}
-	            			}
-	            		}
-	            		if(point == true){
-	            			type = "float";
-	            		}
-	            		//Store it in right variable
-	            		if(type == "int"){
-	            			
-	            		}
-	            		
+            		for(int i=0; i<parts.length; i++){
+            			String onePart = parts[i];
+            			
+//            			//Type checking of the parser
+//            			String type = "int";
+//            			Boolean point = false;
+//	            		for(int i = 0; i<onePart.length(); i++){
+//	            			char c = onePart.charAt(i);
+//	            			if(!Character.isDigit(c)){
+//	            				if(c == '.' && point == false){
+//	            					point = true;
+//	            				}
+//	            				else{
+//	            					type = "string";
+//	            				}
+//	            			}
+//	            		}
+//	            		if(point == true){
+//	            			type = "float";
+//	            		}
+	            		//Create future column
+            			if(currentLine == 2){
+            				data.add(new ArrayList<Object>());
+            			}
+//	            		//Store it in right variable
+//	            		if(type == "int"){
+//	            			int value = Integer.parseInt(onePart);
+//	            			data.get(currentLine-2).add(value);
+//	            		}
+            			data.get(i).add(onePart);
 	            	}
             	}
             	currentLine++;
             }
+            
+            for(int i = 0; i < data.size(); i++){
+    			ArrayList<Object> temp = new ArrayList<Object>();
+    			for (int j = 0; j < data.get(i).size(); j++) {
+    				if(data.get(i).get(j).getClass().equals(data.get(i).get(0).getClass())){
+    					temp.add((Object)data.get(i).get(j));
+    				}
+    				else{
+    					throw new Exception("Les élements de la colonne numéro " + i + " ne sont pas tous du même type");
+    				}
+    			}
+    			columns.add(new Column<Object>(labels.get(i),temp));
+    		}
+    		
+    		size = data.size();
 
         } catch (FileNotFoundException e) {
             System.out.println("File not found: " + file.toString());

@@ -21,13 +21,22 @@ public class DataframeTest {
 			l2 = new ArrayList<Integer>(Arrays.asList(0, 1, 2));
 			l3 = new ArrayList<Object>(Arrays.asList("oui", 4, 1.2));
 	    }
+//		@Test
+//	    public void testNumberColumns() {
+//			try{
+//				Dataframe dt = new Dataframe(labels,l1,l2,l3);
+//				assertEquals(dt.getSize(),3);
+//			} catch(Exception e){
+//				System.err.println(e.getMessage());
+//			}	
+//	    }
+//		
 		@Test
-	    public void testNumberColumns() {
-			try{
-				Dataframe dt = new Dataframe(labels,l1,l2,l3);
+		public void testNumberColumnscsv()throws Exception {
+
+				Dataframe dt = new Dataframe("Input_files/input1.csv");
 				assertEquals(dt.getSize(),3);
-			} catch(Exception e){
-				System.err.println(e.getMessage());
-			}	
+				System.out.println("oui");
+
 	    }
 }

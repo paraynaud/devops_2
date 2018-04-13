@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class Dataframe {
-	private ArrayList<Column<?>> columns;
+	private ArrayList<Column<?>> columns = new ArrayList<Column<?>>();
 	private int size;
 	
 	public Dataframe (String[] labels, ArrayList<?>  ... data) throws Exception{
@@ -35,6 +35,7 @@ public class Dataframe {
 		ArrayList<String> labels = new ArrayList<String>();
 		ArrayList<ArrayList<Object>> data = new ArrayList<ArrayList<Object>>();
 		
+		
 		File file = new File(inputName);
 
         BufferedReader br = null;
@@ -44,12 +45,12 @@ public class Dataframe {
             br = new BufferedReader(fr);
 
             String line;
-
+            Boolean firstLine = true;
             int currentLine = 1;
             while( (line = br.readLine()) != null ) {
-            	Boolean firstLine = true;
-            	String[] parts = line.split(",");
             	
+            	String[] parts = line.split(",");
+            	System.out.println("hey");
             	if(firstLine){
             		//Add labels
             		firstLine = false;
@@ -60,7 +61,7 @@ public class Dataframe {
             	else{
             		for(int i=0; i<parts.length; i++){
             			String onePart = parts[i];
-            			
+            			System.out.println(onePart);
 //            			//Type checking of the parser
 //            			String type = "int";
 //            			Boolean point = false;
@@ -81,6 +82,7 @@ public class Dataframe {
 	            		//Create future column
             			if(currentLine == 2){
             				data.add(new ArrayList<Object>());
+            				System.out.println("DATASIZE"+data.size());
             			}
 //	            		//Store it in right variable
 //	            		if(type == "int"){
@@ -93,20 +95,11 @@ public class Dataframe {
             	currentLine++;
             }
             
-            for(int i = 0; i < data.size(); i++){
-    			ArrayList<Object> temp = new ArrayList<Object>();
-    			for (int j = 0; j < data.get(i).size(); j++) {
-    				if(data.get(i).get(j).getClass().equals(data.get(i).get(0).getClass())){
-    					temp.add((Object)data.get(i).get(j));
-    				}
-    				else{
-    					throw new Exception("Les élements de la colonne numéro " + i + " ne sont pas tous du même type");
-    				}
-    			}
-    			columns.add(new Column<Object>(labels.get(i),temp));
-    		}
-    		
-    		size = data.size();
+            for(int i=0; i<data.size();i++){
+            	Column<Object> temp = new Column<Object>(labels.get(i),data.get(i));
+            	columns.add(i, temp);
+            }
+            size = data.size();
 
         } catch (FileNotFoundException e) {
             System.out.println("File not found: " + file.toString());

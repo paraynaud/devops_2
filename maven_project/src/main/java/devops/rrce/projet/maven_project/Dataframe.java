@@ -271,7 +271,6 @@ public class Dataframe {
 		for(int i=0; i < columnSize; i++){
 			String tmpLabel = columns.get(i).getLabel();
 			
-			//dind'nt see how to make it 'cleaner'
 			if(columns.get(i).getElement(0) instanceof Integer){
 				Column<Integer> temp = new Column<Integer>(tmpLabel,new ArrayList<Integer>());
 				tmpColumns.add(temp);
@@ -311,7 +310,6 @@ public class Dataframe {
 				if(columns.get(i).getLabel().equals(oneLabel)){
 					//Copy column
 					System.out.println("oui");
-					//dind'nt see how to make it 'cleaner'
 					if(columns.get(i).getElement(0) instanceof Integer){
 						Column<Integer> temp = new Column<Integer>(oneLabel,new ArrayList<Integer>());
 						for(int j = 0; j<lineSize; j++){
@@ -340,6 +338,97 @@ public class Dataframe {
 		}
 		return new Dataframe(tmpColumns,tmpColumnSize,lineSize);
 	}
+	
+	public float[] means(){
+		float[] result = new float[columnSize];
+		
+		for(int i = 0; i < columnSize; i++){
+			float sum = 0;
+			for(int j = 0; j < lineSize; j++){
+				if(columns.get(i).getElement(j) instanceof String){
+					String wtf = (String)columns.get(i).getElement(j);
+					sum +=wtf.length();
+				}
+				else if((columns.get(i).getElement(j) instanceof Float)){
+					sum+= (float)columns.get(i).getElement(j);
+				}
+				else {
+					sum+= (int)columns.get(i).getElement(j);
+				}
+			}
+			result[i] = sum/lineSize;
+			System.out.println(result[i]);
+		}
+		
+		return result;
+	}
+	
+	public Object[] max(){
+		Object[] result = new Object[columnSize];
+		for(int i = 0; i < columnSize; i++){
+			Object max = null;
+			float maxValue = 0;
+			for(int j = 0; j < lineSize; j++){
+				if(columns.get(i).getElement(j) instanceof String){
+					String wtf = (String)columns.get(i).getElement(j);
+					if(maxValue<wtf.length()){
+						maxValue = wtf.length();
+						max = wtf;
+					}
+				}
+				else if((columns.get(i).getElement(j) instanceof Integer)){
+					if(maxValue<(int)columns.get(i).getElement(j)){
+						maxValue = (int)columns.get(i).getElement(j);
+						max = maxValue;
+					}
+				}
+				else {
+					if(maxValue<(float)columns.get(i).getElement(j)){
+						maxValue = (float)columns.get(i).getElement(j);
+						max = maxValue;
+					}
+				}
+			}
+			result[i] = max;
+			System.out.println(result[i]);
+		}
+		
+		return result;
+	}
+	
+	public Object[] min(){
+		Object[] result = new Object[columnSize];
+		for(int i = 0; i < columnSize; i++){
+			Object min = null;
+			float minValue = Float.MAX_VALUE;
+			for(int j = 0; j < lineSize; j++){
+				if(columns.get(i).getElement(j) instanceof String){
+					String wtf = (String)columns.get(i).getElement(j);
+					if(minValue>wtf.length()){
+						minValue = wtf.length();
+						min = wtf;
+					}
+				}
+				else if((columns.get(i).getElement(j) instanceof Integer)){
+					if(minValue>(int)columns.get(i).getElement(j)){
+						minValue = (int)columns.get(i).getElement(j);
+						min = minValue;
+					}
+				}
+				else {
+					if(minValue>(float)columns.get(i).getElement(j)){
+						minValue = (float)columns.get(i).getElement(j);
+						min = minValue;
+					}
+				}
+			}
+			result[i] = min;
+			System.out.println(result[i]);
+		}
+		
+		return result;
+	}
+
 	
 	public int getColumnSize(){
 		return columnSize;

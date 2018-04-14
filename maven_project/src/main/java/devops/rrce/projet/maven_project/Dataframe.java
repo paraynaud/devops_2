@@ -1,9 +1,11 @@
 package devops.rrce.projet.maven_project;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -427,6 +429,48 @@ public class Dataframe {
 		}
 		
 		return result;
+	}
+	
+	public void export(String output){
+		File file = new File(output);
+		
+
+        BufferedWriter bw = null;
+
+        try {
+            FileWriter fw = new FileWriter(file);
+            file.createNewFile();
+            bw = new BufferedWriter(fw);
+            for(int i = 0; i < columnSize; i++){
+            	bw.write(columns.get(i).getLabel());
+            	bw.write(",");
+            }
+            bw.newLine();
+            for(int j = 0; j < lineSize; j++){
+            	for(int i = 0; i < columnSize; i++){
+            		bw.write(columns.get(i).getElement(j).toString());
+            		bw.write(",");
+    			}
+            	bw.newLine();
+            }
+            
+            	
+
+        } catch (FileNotFoundException e) {
+            System.out.println("File not found: " + file.toString());
+        } catch (IOException e) {
+            System.out.println("Unable to read file: " + file.toString());
+        }
+        finally {
+            try {
+                bw.close();
+            } catch (IOException e) {
+                System.out.println("Unable to close file: " + file.toString());
+            }
+            catch(NullPointerException ex) {
+            }
+        }
+	
 	}
 
 	

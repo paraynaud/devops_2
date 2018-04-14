@@ -17,4 +17,10 @@ public class Column<T> {
 	public T getElement(int index){
 		return list.get(index);
 	}
+	
+	public void addData(Object elt){
+		list.add((T)elt);
+	}
+	
+	
 }

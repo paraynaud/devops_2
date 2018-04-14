@@ -15,16 +15,49 @@ public class Dataframe {
 	public Dataframe (String[] labels, ArrayList<?>  ... data) throws Exception{
 		
 		for(int i = 0; i < data.length; i++){
-			ArrayList<Object> temp = new ArrayList<Object>();
-			for (int j = 0; j < data[i].size(); j++) {
-				if(data[i].get(j).getClass().equals(data[i].get(0).getClass())){
-					temp.add((Object)data[i].get(j));
+			if(data[i].get(0) instanceof Integer){
+				ArrayList<Integer> temp = new ArrayList<Integer>();
+				for (int j = 0; j < data[i].size(); j++) {
+					if(data[i].get(j).getClass().equals(data[i].get(0).getClass())){
+						temp.add((Integer)data[i].get(j));
+					}
+					else{
+						throw new Exception("The elements of column number " + i + " must be of the same type");
+					}
 				}
-				else{
-					throw new Exception("Les élements de la colonne numéro " + i + " ne sont pas tous du même type");
-				}
+				
+				columns.add(new Column<Integer>(labels[i],temp));
 			}
-			columns.add(new Column<Object>(labels[i],temp));
+			else if (data[i].get(0) instanceof Float){
+				ArrayList<Float> temp = new ArrayList<Float>();
+				for (int j = 0; j < data[i].size(); j++) {
+					if(data[i].get(j).getClass().equals(data[i].get(0).getClass())){
+						temp.add((Float)data[i].get(j));
+					}
+					else{
+						throw new Exception("The elements of column number " + i + " must be of the same type");
+					}
+				}
+				
+				columns.add(new Column<Float>(labels[i],temp));
+			}
+			else if (data[i].get(0) instanceof String){
+				ArrayList<String> temp = new ArrayList<String>();
+				for (int j = 0; j < data[i].size(); j++) {
+					if(data[i].get(j).getClass().equals(data[i].get(0).getClass())){
+						temp.add((String)data[i].get(j));
+					}
+					else{
+						throw new Exception("The elements of column number " + i + " must be of the same type");
+					}
+				}
+				
+				columns.add(new Column<String>(labels[i],temp));
+			}
+			else{
+				throw new TypeCheckingException("Unsupported type");
+			}
+			
 		}
 		lineSize = data[0].size();
 		columnSize = data.length;
@@ -34,7 +67,6 @@ public class Dataframe {
 	public Dataframe (String inputName) throws Exception{
 		
 		ArrayList<String> labels = new ArrayList<String>();
-		ArrayList<ArrayList<Object>> data = new ArrayList<ArrayList<Object>>();
 		
 		
 		File file = new File(inputName);
@@ -61,44 +93,76 @@ public class Dataframe {
             	else{
             		for(int i=0; i<parts.length; i++){
             			String onePart = parts[i];
-//            			//Type checking of the parser
-//            			String type = "int";
-//            			Boolean point = false;
-//	            		for(int i = 0; i<onePart.length(); i++){
-//	            			char c = onePart.charAt(i);
-//	            			if(!Character.isDigit(c)){
-//	            				if(c == '.' && point == false){
-//	            					point = true;
-//	            				}
-//	            				else{
-//	            					type = "string";
-//	            				}
-//	            			}
-//	            		}
-//	            		if(point == true){
-//	            			type = "float";
-//	            		}
+            			//Type checking of the parser
+            			String type = "int";
+            			Boolean point = false;
+	            		for(int j = 0; j<onePart.length(); j++){
+	            			char c = onePart.charAt(j);
+	            			if(!Character.isDigit(c)){
+	            				if(c == '.' && point == false){
+	            					point = true;
+	            				}
+	            				else{
+	            					type = "string";
+	            				}
+	            			}
+	            		}
+	            		if(point == true){
+	            			type = "float";
+	            		}
 	            		//Create future column
             			if(currentLine == 2){
-            				data.add(new ArrayList<Object>());
+            				if(type.equals("int")){
+            					Column<Integer> temp = new Column<Integer>(labels.get(i),new ArrayList<Integer>());
+            					columns.add(temp);
+            				}
+            				else if(type.equals("float")){
+            					Column<Float> temp = new Column<Float>(labels.get(i),new ArrayList<Float>());
+            					columns.add(temp);
+            				}
+            				else{
+            					Column<String> temp = new Column<String>(labels.get(i),new ArrayList<String>());
+            					columns.add(temp);
+            				}
             			}
-//	            		//Store it in right variable
-//	            		if(type == "int"){
-//	            			int value = Integer.parseInt(onePart);
-//	            			data.get(currentLine-2).add(value);
-//	            		}
-            			data.get(i).add(onePart);
+//	            		//Store it with right type
+	            		if(type == "int"){
+	            			int value = Integer.parseInt(onePart);
+	            			columns.get(i).addData(value);
+	            			//Type checking for the columns
+		            		if(currentLine > 2){
+		            			if (!(columns.get(i).getElement(0) instanceof Integer)){
+		            				throw new Exception("The elements of column number " + i + " must be of the same type");
+		            			}
+		            		}
+	            		}
+	            		else if(type == "float"){
+	            			float value = Float.parseFloat(onePart);
+	            			columns.get(i).addData(value);
+	            			//Type checking for the columns
+		            		if(currentLine > 2){
+		            			if (!(columns.get(i).getElement(0) instanceof Float)){
+		            				throw new Exception("The elements of column number " + i + " must be of the same type");
+		            			}
+		            		}
+	            		}
+	            		else{
+	            			columns.get(i).addData(onePart);
+	            			//Type checking for the columns
+		            		if(currentLine > 2){
+		            			if (!(columns.get(i).getElement(0) instanceof String)){
+		            				throw new Exception("The elements of column number" + i + " must be of the same type");
+		            			}
+		            		}
+	            		}
+	            		
 	            	}
             	}
             	currentLine++;
             }
             
-            for(int i=0; i<data.size();i++){
-            	Column<Object> temp = new Column<Object>(labels.get(i),data.get(i));
-            	columns.add(i, temp);
-            }
-            columnSize = data.size();
-            lineSize = data.get(0).size();
+            columnSize = columns.size();
+            lineSize = currentLine - 2;
 
         } catch (FileNotFoundException e) {
             System.out.println("File not found: " + file.toString());

@@ -20,7 +20,13 @@ public class Main {
 		l2 = new ArrayList<Integer>(Arrays.asList(0, 1, 2));
 		l3 = new ArrayList<Object>(Arrays.asList("oui", 4, 1.2));
 		Dataframe dt = new Dataframe("Input_files/input1.csv");
-		System.out.println("oui");
+		dt.printall();
+		Dataframe dt2 = new Dataframe("Input_files/input2.csv");
+		dt2.printFirstLines(4);
+		dt2.printFirstLines(99);
+		Dataframe dt3 = new Dataframe("Input_files/input2.csv");
+		dt3.printLastLines(4);
+		dt3.printLastLines(99);
 	}
 
 }

@@ -9,7 +9,8 @@ import java.util.ArrayList;
 
 public class Dataframe {
 	private ArrayList<Column<?>> columns = new ArrayList<Column<?>>();
-	private int size;
+	private int columnSize;
+	private int lineSize;
 	
 	public Dataframe (String[] labels, ArrayList<?>  ... data) throws Exception{
 		
@@ -25,8 +26,8 @@ public class Dataframe {
 			}
 			columns.add(new Column<Object>(labels[i],temp));
 		}
-		
-		size = data.length;
+		lineSize = data[0].size();
+		columnSize = data.length;
 	
 	}
 	
@@ -50,7 +51,6 @@ public class Dataframe {
             while( (line = br.readLine()) != null ) {
             	
             	String[] parts = line.split(",");
-            	System.out.println("hey");
             	if(firstLine){
             		//Add labels
             		firstLine = false;
@@ -61,7 +61,6 @@ public class Dataframe {
             	else{
             		for(int i=0; i<parts.length; i++){
             			String onePart = parts[i];
-            			System.out.println(onePart);
 //            			//Type checking of the parser
 //            			String type = "int";
 //            			Boolean point = false;
@@ -82,7 +81,6 @@ public class Dataframe {
 	            		//Create future column
             			if(currentLine == 2){
             				data.add(new ArrayList<Object>());
-            				System.out.println("DATASIZE"+data.size());
             			}
 //	            		//Store it in right variable
 //	            		if(type == "int"){
@@ -99,7 +97,8 @@ public class Dataframe {
             	Column<Object> temp = new Column<Object>(labels.get(i),data.get(i));
             	columns.add(i, temp);
             }
-            size = data.size();
+            columnSize = data.size();
+            lineSize = data.get(0).size();
 
         } catch (FileNotFoundException e) {
             System.out.println("File not found: " + file.toString());
@@ -118,8 +117,70 @@ public class Dataframe {
 	
 	}
 	
-	public int getSize(){
-		return size;
+	public void printall(){
+		for(int i =0; i<columnSize; i++){
+			System.out.printf("%15s | ", columns.get(i).getLabel());
+		}
+		System.out.println("");
+		for(int i =0; i<lineSize; i++){
+			for(int j =0; j<columnSize; j++){
+				System.out.printf("%15s | ", columns.get(j).getElement(i));
+			}
+			System.out.println("");
+		}
+	}
+	
+	public void printFirstLines(int nbLines){
+		for(int i =0; i<columnSize; i++){
+			System.out.printf("%15s | ", columns.get(i).getLabel());
+		}
+		System.out.println("");
+		int maxLines;
+		if(lineSize<nbLines){
+			maxLines = lineSize;
+		}
+		else{
+			maxLines = nbLines;
+		}
+		for(int i =0; i<maxLines; i++){
+			for(int j =0; j<columnSize; j++){
+				System.out.printf("%15s | ", columns.get(j).getElement(i));
+			}
+			System.out.println("");
+		}
+	}
+	
+	public void printLastLines(int nbLines){
+		for(int i =0; i<columnSize; i++){
+			System.out.printf("%15s | ", columns.get(i).getLabel());
+		}
+		System.out.println("");
+		int maxLines;
+		if(lineSize<nbLines){
+			maxLines = lineSize;
+		}
+		else{
+			maxLines = nbLines;
+		}
+		
+		for(int i =lineSize-maxLines; i<lineSize; i++){
+			for(int j =0; j<columnSize; j++){
+				System.out.printf("%15s | ", columns.get(j).getElement(i));
+			}
+			System.out.println("");
+		}
+	}
+	
+	public int getColumnSize(){
+		return columnSize;
+	}
+	
+	public int getLineSize(){
+		return columnSize;
+	}
+	
+	public Column<?> getColumn(int index){
+		return columns.get(index);
 	}
 	
 	

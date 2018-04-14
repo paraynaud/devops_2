@@ -33,10 +33,12 @@ public class DataframeTest {
 //		
 		@Test
 		public void testNumberColumnscsv()throws Exception {
-
 				Dataframe dt = new Dataframe("Input_files/input1.csv");
-				assertEquals(dt.getSize(),3);
-				System.out.println("oui");
-
+				assertEquals(dt.getColumnSize(),3);
 	    }
+		public void testData() throws Exception{
+			Dataframe dt = new Dataframe("Input_files/input1.csv");
+			assertEquals(dt.getColumn(0).getElement(1),"non");
+			assertEquals(dt.getColumn(2).getElement(3),2);
+		}
 }

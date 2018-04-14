@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class Dataframe {
-	private ArrayList<Column<?>> columns = new ArrayList<Column<?>>();
+	public ArrayList<Column<?>> columns = new ArrayList<Column<?>>();
 	private int columnSize;
 	private int lineSize;
 	
@@ -200,20 +200,25 @@ public class Dataframe {
 		this.lineSize = lineSize;
 	}
 	
-	public void printall(){
+	public int printall(){
+		int numberOfLinesPrinted = 0;
 		for(int i =0; i<columnSize; i++){
 			System.out.printf("%15s | ", columns.get(i).getLabel());
 		}
+		numberOfLinesPrinted ++;
 		System.out.println("");
 		for(int i =0; i<lineSize; i++){
 			for(int j =0; j<columnSize; j++){
 				System.out.printf("%15s | ", columns.get(j).getElement(i));
 			}
+			numberOfLinesPrinted ++;
 			System.out.println("");
 		}
+		return numberOfLinesPrinted;
 	}
 	
-	public void printFirstLines(int nbLines){
+	public int printFirstLines(int nbLines){
+		int numberOfPrintedLines = 0;
 		for(int i =0; i<columnSize; i++){
 			System.out.printf("%15s | ", columns.get(i).getLabel());
 		}
@@ -229,11 +234,14 @@ public class Dataframe {
 			for(int j =0; j<columnSize; j++){
 				System.out.printf("%15s | ", columns.get(j).getElement(i));
 			}
+			numberOfPrintedLines ++;
 			System.out.println("");
 		}
+		return numberOfPrintedLines;
 	}
 	
-	public void printLastLines(int nbLines){
+	public int printLastLines(int nbLines){
+		int numberOfPrintedLines = 0;
 		for(int i =0; i<columnSize; i++){
 			System.out.printf("%15s | ", columns.get(i).getLabel());
 		}
@@ -250,9 +258,12 @@ public class Dataframe {
 			for(int j =0; j<columnSize; j++){
 				System.out.printf("%15s | ", columns.get(j).getElement(i));
 			}
+			numberOfPrintedLines ++;
 			System.out.println("");
 		}
+		return numberOfPrintedLines;
 	}
+	
 	
 	public Dataframe selectLines(int ... indexes){
 		
@@ -335,7 +346,7 @@ public class Dataframe {
 	}
 	
 	public int getLineSize(){
-		return columnSize;
+		return lineSize;
 	}
 	
 	public Column<?> getColumn(int index){

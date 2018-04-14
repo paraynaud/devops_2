@@ -194,7 +194,7 @@ public class Dataframe {
 	
 	}
 	
-	public Dataframe(ArrayList<Column<?>> columns,int columnSize, int lineSize){
+	private Dataframe(ArrayList<Column<?>> columns,int columnSize, int lineSize){
 		this.columns = columns;
 		this.columnSize = columnSize;
 		this.lineSize = lineSize;

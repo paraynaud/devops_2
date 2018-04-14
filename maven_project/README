@@ -1,0 +1,40 @@
+Fonctionnalités
+
+public Dataframe (String[] labels, ArrayList<?>  ... data) throws Exception
+public Dataframe (String inputName) throws Exception
+
+Permet de créer un Dataframe à partir, soit d'un tableau de labels et de listes de données, soit d'un fichier CSV.
+Si le nombre de lignes d'une colonne est inégale au nombre de lignes des autres, le constructeur renvoie une VectorSizeException.
+Si le nombre de colonnes d'une ligne est inégale au nombre de colonnes des autres, le constructeur renvoie une VectorSizeException.
+Si le type d'une valeur de la colonne diffère d'une autre valeur, le constructeur renvoie une TypeCheckingException.
+Si le type d'une valeur n'est pas String, int ou float, le constructeur renvoie une TypeCheckingException.
+
+public int printall()
+
+Affiche le contenu d'un dataframe dans la console
+
+public int printFirstLines(int nbLines)
+public int printLastLines(int nbLines)
+
+Affiche les [nbLines] premières/dernières lignes d'un dataframe dans la console
+
+public Dataframe selectLines(int ... indexes)
+public Dataframe selectColumns(String ... labels)
+
+Permet de construire un nouveau Dataframe avec les lignes/colonnes indiquées par leur (resp.) index/label
+
+public float[] means()
+public Object[] max()
+public Object[] min()
+Renvoie un tableau avec les moyennes/maximums/minimums de chaque colonne.
+
+public int getColumnSize()
+public int getLineSize()
+
+Permet d'obtenir le niombre de colonnes/lignes
+
+public Column<?> getColumn(int index)
+permet d'obtenir un objet Column brut, utile pour le débug
+
+[TODO] Description des choix d'outils que vous avez fait
+[TODO] Partie feedback dans laquelle vous donnerez votre retour d'expérience sur les différents outils utilisés durant le projet.

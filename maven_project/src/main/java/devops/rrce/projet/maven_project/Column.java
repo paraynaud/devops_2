@@ -22,5 +22,9 @@ public class Column<T> {
 		list.add((T)elt);
 	}
 	
+	public Column<T> clone(){
+		
+		return null;
+	}
 	
 }

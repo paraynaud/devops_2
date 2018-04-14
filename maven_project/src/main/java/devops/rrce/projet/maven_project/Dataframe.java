@@ -13,11 +13,16 @@ public class Dataframe {
 	private int lineSize;
 	
 	public Dataframe (String[] labels, ArrayList<?>  ... data) throws Exception{
-		
+		int supposedColumnLength = data[0].size();
 		for(int i = 0; i < data.length; i++){
+			if(data[0].size() != data[i].size()){
+				throw new VectorSizeException("Columns must have the same number of lines");
+			}
+			
 			if(data[i].get(0) instanceof Integer){
 				ArrayList<Integer> temp = new ArrayList<Integer>();
 				for (int j = 0; j < data[i].size(); j++) {
+					//Type checking : same type in all columns
 					if(data[i].get(j).getClass().equals(data[i].get(0).getClass())){
 						temp.add((Integer)data[i].get(j));
 					}
@@ -30,6 +35,7 @@ public class Dataframe {
 			}
 			else if (data[i].get(0) instanceof Float){
 				ArrayList<Float> temp = new ArrayList<Float>();
+				//Type checking : same type in all columns
 				for (int j = 0; j < data[i].size(); j++) {
 					if(data[i].get(j).getClass().equals(data[i].get(0).getClass())){
 						temp.add((Float)data[i].get(j));
@@ -43,6 +49,7 @@ public class Dataframe {
 			}
 			else if (data[i].get(0) instanceof String){
 				ArrayList<String> temp = new ArrayList<String>();
+				//Type checking : same type in all columns
 				for (int j = 0; j < data[i].size(); j++) {
 					if(data[i].get(j).getClass().equals(data[i].get(0).getClass())){
 						temp.add((String)data[i].get(j));
@@ -68,7 +75,6 @@ public class Dataframe {
 		
 		ArrayList<String> labels = new ArrayList<String>();
 		
-		
 		File file = new File(inputName);
 
         BufferedReader br = null;
@@ -80,6 +86,7 @@ public class Dataframe {
             String line;
             Boolean firstLine = true;
             int currentLine = 1;
+            int supposedLineLength = 0;
             while( (line = br.readLine()) != null ) {
             	
             	String[] parts = line.split(",");
@@ -89,9 +96,15 @@ public class Dataframe {
 	            	for(String onePart : parts){
 	            		labels.add(onePart);
 	            	}
+	            	supposedLineLength = parts.length;
             	}
             	else{
             		for(int i=0; i<parts.length; i++){
+            			//Length of line checking
+            			if(parts.length != supposedLineLength){
+            				throw new VectorSizeException("Lines must have the same number of columns");
+            			}
+            			
             			String onePart = parts[i];
             			//Type checking of the parser
             			String type = "int";
@@ -181,6 +194,12 @@ public class Dataframe {
 	
 	}
 	
+	public Dataframe(ArrayList<Column<?>> columns,int columnSize, int lineSize){
+		this.columns = columns;
+		this.columnSize = columnSize;
+		this.lineSize = lineSize;
+	}
+	
 	public void printall(){
 		for(int i =0; i<columnSize; i++){
 			System.out.printf("%15s | ", columns.get(i).getLabel());
@@ -233,6 +252,82 @@ public class Dataframe {
 			}
 			System.out.println("");
 		}
+	}
+	
+	public Dataframe selectLines(int ... indexes){
+		
+		ArrayList<Column<?>> tmpColumns = new ArrayList<Column<?>>();
+		for(int i=0; i < columnSize; i++){
+			String tmpLabel = columns.get(i).getLabel();
+			
+			//dind'nt see how to make it 'cleaner'
+			if(columns.get(i).getElement(0) instanceof Integer){
+				Column<Integer> temp = new Column<Integer>(tmpLabel,new ArrayList<Integer>());
+				tmpColumns.add(temp);
+			}
+			else if(columns.get(i).getElement(0) instanceof Float){
+				Column<Float> temp = new Column<Float>(tmpLabel,new ArrayList<Float>());
+				tmpColumns.add(temp);
+			}
+			else {
+				Column<String> temp = new Column<String>(tmpLabel,new ArrayList<String>());
+				tmpColumns.add(temp);
+			}
+		}
+		
+		int tmpLineSize = indexes.length;
+		for(int i = 0; i < indexes.length; i++){
+			if(indexes[i]<lineSize){
+				for(int j = 0; j < columnSize; j++){
+						tmpColumns.get(j).addData(columns.get(j).getElement(indexes[i]));
+				}
+			}
+			else{
+				tmpLineSize--;
+			}
+		}
+		
+		return new Dataframe(tmpColumns,tmpColumns.size(),tmpLineSize);
+	}
+	
+	public Dataframe selectColumns(String ... labels){
+		ArrayList<Column<?>> tmpColumns = new ArrayList<Column<?>>();
+		int tmpColumnSize = 0;
+		
+		for(String oneLabel : labels){
+			System.out.println(oneLabel);
+			for(int i = 0; i < columnSize; i++){
+				if(columns.get(i).getLabel().equals(oneLabel)){
+					//Copy column
+					System.out.println("oui");
+					//dind'nt see how to make it 'cleaner'
+					if(columns.get(i).getElement(0) instanceof Integer){
+						Column<Integer> temp = new Column<Integer>(oneLabel,new ArrayList<Integer>());
+						for(int j = 0; j<lineSize; j++){
+							temp.addData(columns.get(i).getElement(j));
+						}
+						tmpColumns.add(temp);
+					}
+					else if(columns.get(i).getElement(0) instanceof Float){
+						Column<Float> temp = new Column<Float>(oneLabel,new ArrayList<Float>());
+						for(int j = 0; j<lineSize; j++){
+							temp.addData(columns.get(i).getElement(j));
+						}
+						tmpColumns.add(temp);
+					}
+					else {
+						Column<String> temp = new Column<String>(oneLabel,new ArrayList<String>());
+						for(int j = 0; j<lineSize; j++){
+							temp.addData(columns.get(i).getElement(j));
+						}
+						tmpColumns.add(temp);
+					}
+					
+					tmpColumnSize++;
+				}
+			}
+		}
+		return new Dataframe(tmpColumns,tmpColumnSize,lineSize);
 	}
 	
 	public int getColumnSize(){

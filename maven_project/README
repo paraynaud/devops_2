@@ -28,6 +28,10 @@ public Object[] max()
 public Object[] min()
 Renvoie un tableau avec les moyennes/maximums/minimums de chaque colonne.
 
+public void export(String output)
+
+Permet d'exporter le Dataframe au format csv, selon le chemin [output]
+
 public int getColumnSize()
 public int getLineSize()
 

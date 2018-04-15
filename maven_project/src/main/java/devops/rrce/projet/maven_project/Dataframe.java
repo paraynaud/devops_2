@@ -29,7 +29,7 @@ public class Dataframe {
 						temp.add((Integer)data[i].get(j));
 					}
 					else{
-						throw new Exception("The elements of column number " + i + " must be of the same type");
+						throw new TypeCheckingException("The elements of column number " + i + " must be of the same type");
 					}
 				}
 				
@@ -43,7 +43,7 @@ public class Dataframe {
 						temp.add((Float)data[i].get(j));
 					}
 					else{
-						throw new Exception("The elements of column number " + i + " must be of the same type");
+						throw new TypeCheckingException("The elements of column number " + i + " must be of the same type");
 					}
 				}
 				
@@ -57,7 +57,7 @@ public class Dataframe {
 						temp.add((String)data[i].get(j));
 					}
 					else{
-						throw new Exception("The elements of column number " + i + " must be of the same type");
+						throw new TypeCheckingException("The elements of column number " + i + " must be of the same type");
 					}
 				}
 				
@@ -147,7 +147,7 @@ public class Dataframe {
 	            			//Type checking for the columns
 		            		if(currentLine > 2){
 		            			if (!(columns.get(i).getElement(0) instanceof Integer)){
-		            				throw new Exception("The elements of column number " + i + " must be of the same type");
+		            				throw new TypeCheckingException("The elements of column number " + i + " must be of the same type");
 		            			}
 		            		}
 	            		}
@@ -157,7 +157,7 @@ public class Dataframe {
 	            			//Type checking for the columns
 		            		if(currentLine > 2){
 		            			if (!(columns.get(i).getElement(0) instanceof Float)){
-		            				throw new Exception("The elements of column number " + i + " must be of the same type");
+		            				throw new TypeCheckingException("The elements of column number " + i + " must be of the same type");
 		            			}
 		            		}
 	            		}
@@ -166,7 +166,7 @@ public class Dataframe {
 	            			//Type checking for the columns
 		            		if(currentLine > 2){
 		            			if (!(columns.get(i).getElement(0) instanceof String)){
-		            				throw new Exception("The elements of column number" + i + " must be of the same type");
+		            				throw new TypeCheckingException("The elements of column number" + i + " must be of the same type");
 		            			}
 		            		}
 	            		}

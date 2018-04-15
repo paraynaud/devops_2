@@ -1,3 +1,9 @@
+Membres du groupe :
+SHERIF Rana
+VALLON Arnaud
+RAYNAUD Paul
+COLEIRO Loric
+
 Fonctionnalités
 
 public Dataframe (String[] labels, ArrayList<?>  ... data) throws Exception
@@ -41,5 +47,13 @@ Permet d'obtenir le niombre de colonnes/lignes
 public Column<?> getColumn(int index)
 permet d'obtenir un objet Column brut, utile pour le débug
 
-[TODO] Description des choix d'outils que vous avez fait
-[TODO] Partie feedback dans laquelle vous donnerez votre retour d'expérience sur les différents outils utilisés durant le projet.
+
+Retour devops
+
+L utilisation de github (git en general) nous a permis de travailler à plusieurs sur le projet
+
+L utilisation de maven nous à permit de lancer un projet avec une  structure lambda en ajoutant des plugins (comme eclemma pour la couverture de code) de manière simple et rapide.
+
+Le plus intéressant a été l utilisation de travis ci (et junit ) nous permettant de développer du code de manière sure et d avoir un code toujours stable en toutes circonstances.
+
+La couverture de code nous a aiguillé sur des cas qu'on n'aurait pas pensé à tester.

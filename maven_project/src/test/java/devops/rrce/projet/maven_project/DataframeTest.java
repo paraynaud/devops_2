@@ -27,6 +27,7 @@ public class DataframeTest {
 		ArrayList<Float> l4;
 		ArrayList<Object> l5;
 		ArrayList<Object> l6;
+		ArrayList<Integer> l7;
 		@Before
 	    public void init() {
 			labels = new String[]{ "MyString", "MyInteger", "MyFloat" };
@@ -36,6 +37,7 @@ public class DataframeTest {
 			l5 = new ArrayList<Object>(Arrays.asList(4, 5, 1.2f));
 			l6 = new ArrayList<Object>(Arrays.asList(1.2f, 6.9f, "AH"));
 			l4 = new ArrayList<Float>(Arrays.asList(1.1f, 1.3f, 1.2f));
+			l7 = new ArrayList<Integer>(Arrays.asList(0, 2));
 	    }
 		@Test
 	    public void testNumberColumns()throws Exception {
@@ -43,19 +45,29 @@ public class DataframeTest {
 				assertEquals(dt.getColumnSize(),3);
 	    }
 		
-		@Test(expected = IndexOutOfBoundsException.class)
+		@Test(expected = TypeCheckingException.class)
 		public void testTypeCheckingException()throws Exception {
 			Dataframe dt = new Dataframe(labels,l1,l2,l3);
 		}
 		
-		@Test(expected = IndexOutOfBoundsException.class)
+		@Test(expected = TypeCheckingException.class)
 		public void testTypeCheckingException2()throws Exception {
 			Dataframe dt = new Dataframe(labels,l1,l2,l5);
 		}
 		
-		@Test(expected = IndexOutOfBoundsException.class)
+		@Test(expected = TypeCheckingException.class)
 		public void testTypeCheckingException3()throws Exception {
 			Dataframe dt = new Dataframe(labels,l1,l2,l6);
+		}
+		
+		@Test(expected = VectorSizeException.class)
+		public void testVectorSizeException_Column()throws Exception {
+			Dataframe dt = new Dataframe("Input_files/input5.csv");
+		}
+		
+		@Test(expected = VectorSizeException.class)
+		public void testVectorSizeException_Line()throws Exception {
+			Dataframe dt = new Dataframe(labels,l1,l7,l4);
 		}
 		
 		@Test
@@ -133,9 +145,19 @@ public class DataframeTest {
 			
 		}
 		
-		@Test(expected = Exception.class)
-		public void Exception1() throws Exception {
+		@Test(expected = TypeCheckingException.class)
+		public void testTypeCheckingExceptioncsv() throws Exception{
 				Dataframe dt = new Dataframe("Input_files/input3.csv");		
+		}
+		
+		@Test(expected = TypeCheckingException.class)
+		public void testTypeCheckingExceptioncsv2() throws Exception{
+				Dataframe dt = new Dataframe("Input_files/input6.csv");		
+		}
+		
+		@Test(expected = TypeCheckingException.class)
+		public void testTypeCheckingExceptioncsv3() throws Exception{
+				Dataframe dt = new Dataframe("Input_files/input7.csv");		
 		}
 		
 		@Test

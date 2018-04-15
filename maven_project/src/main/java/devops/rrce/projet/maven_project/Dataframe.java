@@ -430,20 +430,28 @@ public class Dataframe {
 		File file = new File(output);
         BufferedWriter bw = null;
         try {
+        	file.createNewFile();
             FileWriter fw = new FileWriter(file);
-            file.createNewFile();
+            
             bw = new BufferedWriter(fw);
             for(int i = 0; i < columnSize; i++){
             	bw.write(columns.get(i).getLabel());
-            	bw.write(",");
+            	if(i<columnSize - 1){
+            		bw.write(",");
+            	}
+            	
             }
             bw.newLine();
             for(int j = 0; j < lineSize; j++){
             	for(int i = 0; i < columnSize; i++){
             		bw.write(columns.get(i).getElement(j).toString());
-            		bw.write(",");
+            		if(i<columnSize - 1){
+                		bw.write(",");
+                	}
     			}
-            	bw.newLine();
+            	if(j<lineSize - 1){
+            		bw.newLine();
+            	}
             }         	
 
         } catch (FileNotFoundException e) {

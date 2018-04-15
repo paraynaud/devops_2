@@ -3,7 +3,13 @@ package devops.rrce.projet.maven_project;
 import static org.junit.Assert.*;
 
 import java.io.BufferedInputStream;
+import java.io.File;
 import java.io.FileInputStream;
+import java.nio.ByteBuffer;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.FileSystems;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -202,22 +208,31 @@ public class DataframeTest {
 		
 		@Test
 		public void export() throws Exception{
+			
 			Dataframe dt = new Dataframe("Input_files/input2.csv");					
-			dt.export("maven_project/result.csv");
-	        BufferedInputStream fis1 = new BufferedInputStream(new FileInputStream("Input_files/expectedresult.csv"));
-	        BufferedInputStream fis2 = new BufferedInputStream(new FileInputStream("result.csv"));
+			dt.export("./result.csv");
+	        BufferedInputStream fis1 = new BufferedInputStream(new FileInputStream("Input_files/input2.csv"));
+	        BufferedInputStream fis2 = new BufferedInputStream(new FileInputStream("./result.csv"));
 	        int b1 = 0, b2 = 0, pos = 1;
 	        Boolean bool = true;
 	        while (b1 != -1 && b2 != -1) {
 	            if (b1 != b2) {
 	                System.out.println("Files differ at position " + pos);
 	                bool = false;
-	            }
+	            } 
 	            pos++;
 	            b1 = fis1.read();
 	            b2 = fis2.read();
 	        }
 			assertEquals(bool,true);
+		}
+		
+		
+		@Test
+		public void selectlinesizetest() throws Exception{
+			Dataframe dt = new Dataframe("Input_files/input2.csv");	
+			Dataframe df = dt.selectLines(1);
+			assertEquals(df.getColumn(0).getLabel(),"MyString");
 		}
 		
 		

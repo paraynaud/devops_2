@@ -19,12 +19,16 @@ public class DataframeTest {
 		ArrayList<Integer> l2;
 		ArrayList<Object> l3;
 		ArrayList<Float> l4;
+		ArrayList<Object> l5;
+		ArrayList<Object> l6;
 		@Before
 	    public void init() {
 			labels = new String[]{ "MyString", "MyInteger", "MyFloat" };
 			l1 = new ArrayList<String>(Arrays.asList("oui", "non", "peut-etre"));
 			l2 = new ArrayList<Integer>(Arrays.asList(0, 1, 2));
 			l3 = new ArrayList<Object>(Arrays.asList("oui", 4, 1.2f));
+			l5 = new ArrayList<Object>(Arrays.asList(4, 5, 1.2f));
+			l6 = new ArrayList<Object>(Arrays.asList(1.2f, 6.9f, "AH"));
 			l4 = new ArrayList<Float>(Arrays.asList(1.1f, 1.3f, 1.2f));
 	    }
 		@Test
@@ -36,6 +40,16 @@ public class DataframeTest {
 		@Test(expected = IndexOutOfBoundsException.class)
 		public void testTypeCheckingException()throws Exception {
 			Dataframe dt = new Dataframe(labels,l1,l2,l3);
+		}
+		
+		@Test(expected = IndexOutOfBoundsException.class)
+		public void testTypeCheckingException2()throws Exception {
+			Dataframe dt = new Dataframe(labels,l1,l2,l5);
+		}
+		
+		@Test(expected = IndexOutOfBoundsException.class)
+		public void testTypeCheckingException3()throws Exception {
+			Dataframe dt = new Dataframe(labels,l1,l2,l6);
 		}
 		
 		@Test

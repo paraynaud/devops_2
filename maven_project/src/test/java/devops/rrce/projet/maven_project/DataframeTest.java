@@ -133,28 +133,56 @@ public class DataframeTest {
 		}
 		
 		@Test
-		public void meanstest() throws Exception{
+		public void meanstestString() throws Exception{
 			Dataframe dt = new Dataframe("Input_files/input4.csv");
-			assertEquals(dt.means()[0],5.0,0.01);
-			assertEquals(dt.means()[1],3.0,0.01);
+			assertEquals(dt.means()[0],5.0,0.01);			
+		}
+		
+		@Test
+		public void meanstestInt() throws Exception{
+			Dataframe dt = new Dataframe("Input_files/input4.csv");
+			assertEquals(dt.means()[1],3.0,0.01);			
+		}
+		
+		@Test
+		public void meanstestFloat() throws Exception{
+			Dataframe dt = new Dataframe("Input_files/input4.csv");
 			assertEquals(dt.means()[2],4.4,0.01);				
 		}
 		
-		
-		
 		@Test 
-		public void maxtest() throws Exception{
+		public void maxtestString() throws Exception{
 			Dataframe dt = new Dataframe("Input_files/input4.csv");
 			assertEquals(dt.max()[0],"peut-etre");
+		}
+		
+		@Test 
+		public void maxtestInt() throws Exception{
+			Dataframe dt = new Dataframe("Input_files/input4.csv");
 			assertEquals(dt.max()[1],6);
+		}
+		
+		@Test 
+		public void maxtestFloat() throws Exception{
+			Dataframe dt = new Dataframe("Input_files/input4.csv");
 			assertEquals(dt.max()[2],7.7f);
 		}
 		
 		@Test
-		public void mintest() throws Exception{
+		public void mintestString() throws Exception{
 			Dataframe dt = new Dataframe("Input_files/input4.csv");
 			assertEquals(dt.min()[0],"oui");
+		}
+		
+		@Test
+		public void mintestInt() throws Exception{
+			Dataframe dt = new Dataframe("Input_files/input4.csv");
 			assertEquals(dt.min()[1],0);
+		}
+		
+		@Test
+		public void mintestFloat() throws Exception{
+			Dataframe dt = new Dataframe("Input_files/input4.csv");
 			assertEquals(dt.min()[2],1.1f);
 		}
 		

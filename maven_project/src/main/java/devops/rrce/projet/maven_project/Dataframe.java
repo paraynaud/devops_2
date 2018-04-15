@@ -368,7 +368,7 @@ public class Dataframe {
 		Object[] result = new Object[columnSize];
 		for(int i = 0; i < columnSize; i++){
 			Object max = null;
-			float maxValue = 0;
+			float maxValue = 0; 
 			for(int j = 0; j < lineSize; j++){
 				if(columns.get(i).getElement(j) instanceof String){
 					String wtf = (String)columns.get(i).getElement(j);
@@ -430,10 +430,7 @@ public class Dataframe {
 	
 	public void export(String output){
 		File file = new File(output);
-		
-
         BufferedWriter bw = null;
-
         try {
             FileWriter fw = new FileWriter(file);
             file.createNewFile();
@@ -449,9 +446,7 @@ public class Dataframe {
             		bw.write(",");
     			}
             	bw.newLine();
-            }
-            
-            	
+            }         	
 
         } catch (FileNotFoundException e) {
             System.out.println("File not found: " + file.toString());

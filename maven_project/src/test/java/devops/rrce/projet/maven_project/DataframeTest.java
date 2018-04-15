@@ -2,11 +2,16 @@ package devops.rrce.projet.maven_project;
 
 import static org.junit.Assert.*;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 
 import org.junit.Before;
 import org.junit.Test;
+
+import junit.framework.Assert;
+
 
 public class DataframeTest {
 	
@@ -126,7 +131,7 @@ public class DataframeTest {
 			assertEquals(dt.means()[2],4.4,0.01);				
 		}
 		
-		@Test
+		@Test 
 		public void maxtest() throws Exception{
 			Dataframe dt = new Dataframe("Input_files/input4.csv");
 			assertEquals(dt.max()[0],"peut-etre");
@@ -140,6 +145,16 @@ public class DataframeTest {
 			assertEquals(dt.min()[0],"oui");
 			assertEquals(dt.min()[1],0);
 			assertEquals(dt.min()[2],1.1f);
+		}
+		
+		@Test
+		public void export() throws Exception{
+			Dataframe dt = new Dataframe("Input_files/input2.csv");		
+			FileInputStream file1 = new FileInputStream("Input_files/expectedresult.csv");			
+			dt.export("maven_project/result.csv");
+			FileInputStream file2 = new FileInputStream("maven_project/result.csv");
+			assertEquals(file1.toString(),file2.toString());
+			 
 		}
 		
 }

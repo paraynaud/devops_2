@@ -111,5 +111,23 @@ public class DataframeTest {
 				Dataframe dt = new Dataframe("Input_files/input3.csv");		
 		}
 
+		@Test
+		public void select() throws Exception{
+			Dataframe dt = new Dataframe("Input_files/input2.csv");
+			Dataframe dt2 = dt.selectColumns("MyString","MyFloat");
+			assertEquals(dt2.getColumnSize(),2);	
+		}
+		
+		@Test
+		public void meanstest() throws Exception{
+			Dataframe dt = new Dataframe("Input_files/input2.csv");
+			assertEquals(dt.means()[1],(float)3.0,0.01);				
+		}
+		
+		@Test
+		public void maxtest() throws Exception{
+			Dataframe dt = new Dataframe("Input_files/input2.csv");
+			System.out.println("Hello");
+		}
 		
 }

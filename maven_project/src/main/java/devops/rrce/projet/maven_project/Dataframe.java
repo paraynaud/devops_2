@@ -346,44 +346,53 @@ public class Dataframe {
 		for(int i = 0; i < columnSize; i++){
 			float sum = 0;
 			for(int j = 0; j < lineSize; j++){
-				if(columns.get(i).getElement(0) instanceof String){
-					sum=sum;
+				if(columns.get(i).getElement(j) instanceof String){
+					String wtf = (String)columns.get(i).getElement(j);
+					sum +=wtf.length();
 				}
-				else if((columns.get(i).getElement(0) instanceof Float)){
-					sum+= (float)columns.get(i).getElement(j);
+				else if((columns.get(i).getElement(j) instanceof Float)){
+					sum+= (Float)columns.get(i).getElement(j);
 				}
-				else { 
-					sum+= (int)columns.get(i).getElement(j);
+				else {
+					sum+= (Integer)columns.get(i).getElement(j);
 				}
 			}
 			result[i] = sum/lineSize;
 			System.out.println(result[i]);
 		}
+		
 		return result;
-	}
+}
 	
-	public float[] max(){
-		float[] result = new float[columnSize];
-		float max; 
+	public Object[] max(){
+		Object[] result = new Object[columnSize];
 		for(int i = 0; i < columnSize; i++){
-			max = (float)-1000000.0;
+			Object max = null;
+			float maxValue = 0;
 			for(int j = 0; j < lineSize; j++){
-				if(columns.get(i).getElement(0) instanceof String){
-					max=max;
+				if(columns.get(i).getElement(j) instanceof String){
+					String wtf = (String)columns.get(i).getElement(j);
+					if(maxValue<wtf.length()){
+						maxValue = wtf.length();
+						max = wtf;
+					}
 				}
-				else if((columns.get(i).getElement(0) instanceof Integer)){
-					if(max<=(float)columns.get(i).getElement(j)){
-						max = (float)columns.get(i).getElement(j);
-					} 
+				else if((columns.get(i).getElement(j) instanceof Integer)){
+					if(maxValue<(Integer)columns.get(i).getElement(j)){
+						maxValue = 0 + (Integer)columns.get(i).getElement(j);
+						max = (Integer)columns.get(i).getElement(j);
+					}
 				}
-				else if((columns.get(i).getElement(0) instanceof Float)){
-					if(max<=(Float)columns.get(i).getElement(j)){
-						max = (Float)columns.get(i).getElement(j);
+				else {
+					if(maxValue<(Float)columns.get(i).getElement(j)){
+						maxValue = (Float)columns.get(i).getElement(j);
+						max = maxValue;
 					}
 				}
 			}
 			result[i] = max;
 		}
+		
 		return result;
 	}
 	
@@ -402,8 +411,8 @@ public class Dataframe {
 				}
 				else if((columns.get(i).getElement(j) instanceof Integer)){
 					if(minValue>(Integer)columns.get(i).getElement(j)){
-						minValue = (Integer)columns.get(i).getElement(j);
-						min = minValue;
+						minValue = 0 + (Integer)columns.get(i).getElement(j);
+						min = (Integer)columns.get(i).getElement(j);
 					}
 				}
 				else {

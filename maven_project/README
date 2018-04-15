@@ -27,6 +27,7 @@ public float[] means()
 public Object[] max()
 public Object[] min()
 Renvoie un tableau avec les moyennes/maximums/minimums de chaque colonne.
+Le critère de comparaison pour un String est sa longueur.
 
 public void export(String output)
 

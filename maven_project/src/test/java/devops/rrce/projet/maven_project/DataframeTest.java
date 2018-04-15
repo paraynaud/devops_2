@@ -120,14 +120,26 @@ public class DataframeTest {
 		
 		@Test
 		public void meanstest() throws Exception{
-			Dataframe dt = new Dataframe("Input_files/input2.csv");
-			assertEquals(dt.means()[1],(float)3.0,0.01);				
+			Dataframe dt = new Dataframe("Input_files/input4.csv");
+			assertEquals(dt.means()[0],5.0,0.01);
+			assertEquals(dt.means()[1],3.0,0.01);
+			assertEquals(dt.means()[2],4.4,0.01);				
 		}
 		
 		@Test
 		public void maxtest() throws Exception{
-			Dataframe dt = new Dataframe("Input_files/input2.csv");
-			System.out.println("Hello");
+			Dataframe dt = new Dataframe("Input_files/input4.csv");
+			assertEquals(dt.max()[0],"peut-etre");
+			assertEquals(dt.max()[1],6);
+			assertEquals(dt.max()[2],7.7f);
+		}
+		
+		@Test
+		public void mintest() throws Exception{
+			Dataframe dt = new Dataframe("Input_files/input4.csv");
+			assertEquals(dt.min()[0],"oui");
+			assertEquals(dt.min()[1],0);
+			assertEquals(dt.min()[2],1.1f);
 		}
 		
 }

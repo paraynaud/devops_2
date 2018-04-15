@@ -352,10 +352,10 @@ public class Dataframe {
 					sum +=wtf.length();
 				}
 				else if((columns.get(i).getElement(j) instanceof Float)){
-					sum+= (float)columns.get(i).getElement(j);
+					sum+= (Float)columns.get(i).getElement(j);
 				}
 				else {
-					sum+= (int)columns.get(i).getElement(j);
+					sum+= (Integer)columns.get(i).getElement(j);
 				}
 			}
 			result[i] = sum/lineSize;
@@ -379,14 +379,14 @@ public class Dataframe {
 					}
 				}
 				else if((columns.get(i).getElement(j) instanceof Integer)){
-					if(maxValue<(int)columns.get(i).getElement(j)){
-						maxValue = (int)columns.get(i).getElement(j);
+					if(maxValue<(Integer)columns.get(i).getElement(j)){
+						maxValue = (Float)columns.get(i).getElement(j);
 						max = maxValue;
 					}
 				}
 				else {
-					if(maxValue<(float)columns.get(i).getElement(j)){
-						maxValue = (float)columns.get(i).getElement(j);
+					if(maxValue<(Float)columns.get(i).getElement(j)){
+						maxValue = (Float)columns.get(i).getElement(j);
 						max = maxValue;
 					}
 				}
@@ -412,14 +412,14 @@ public class Dataframe {
 					}
 				}
 				else if((columns.get(i).getElement(j) instanceof Integer)){
-					if(minValue>(int)columns.get(i).getElement(j)){
-						minValue = (int)columns.get(i).getElement(j);
+					if(minValue>(Integer)columns.get(i).getElement(j)){
+						minValue = (Integer)columns.get(i).getElement(j);
 						min = minValue;
 					}
 				}
 				else {
-					if(minValue>(float)columns.get(i).getElement(j)){
-						minValue = (float)columns.get(i).getElement(j);
+					if(minValue>(Float)columns.get(i).getElement(j)){
+						minValue = (Float)columns.get(i).getElement(j);
 						min = minValue;
 					}
 				}

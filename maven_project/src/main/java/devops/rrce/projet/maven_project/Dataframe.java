@@ -307,7 +307,6 @@ public class Dataframe {
 		int tmpColumnSize = 0;
 		
 		for(String oneLabel : labels){
-			System.out.println(oneLabel);
 			for(int i = 0; i < columnSize; i++){
 				if(columns.get(i).getLabel().equals(oneLabel)){
 					//Copy column
@@ -358,7 +357,6 @@ public class Dataframe {
 				}
 			}
 			result[i] = sum/lineSize;
-			System.out.println(result[i]);
 		}
 		
 		return result;

@@ -3,16 +3,13 @@ package devops.rrce.projet.maven_project;
 import static org.junit.Assert.*;
 
 import java.io.BufferedInputStream;
-import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.Arrays;
 
 import org.junit.Before;
 import org.junit.Test;
 
-import junit.framework.Assert;
 
 
 public class DataframeTest {
@@ -21,23 +18,26 @@ public class DataframeTest {
 		ArrayList<String> l1;
 		ArrayList<Integer> l2;
 		ArrayList<Object> l3;
+		ArrayList<Float> l4;
 		@Before
 	    public void init() {
 			labels = new String[]{ "MyString", "MyInteger", "MyFloat" };
 			l1 = new ArrayList<String>(Arrays.asList("oui", "non", "peut-etre"));
 			l2 = new ArrayList<Integer>(Arrays.asList(0, 1, 2));
-			l3 = new ArrayList<Object>(Arrays.asList("oui", 4, 1.2));
+			l3 = new ArrayList<Object>(Arrays.asList("oui", 4, 1.2f));
+			l4 = new ArrayList<Float>(Arrays.asList(1.1f, 1.3f, 1.2f));
 	    }
-//		@Test
-//	    public void testNumberColumns() {
-//			try{
-//				Dataframe dt = new Dataframe(labels,l1,l2,l3);
-//				assertEquals(dt.getSize(),3);
-//			} catch(Exception e){
-//				System.err.println(e.getMessage());
-//			}	
-//	    }
-//		
+		@Test
+	    public void testNumberColumns()throws Exception {
+				Dataframe dt = new Dataframe(labels,l1,l2,l4);
+				assertEquals(dt.getColumnSize(),3);
+	    }
+		
+		@Test(expected = IndexOutOfBoundsException.class)
+		public void testTypeCheckingException()throws Exception {
+			Dataframe dt = new Dataframe(labels,l1,l2,l3);
+		}
+		
 		@Test
 		public void testNumberColumnscsv()throws Exception {
 				Dataframe dt = new Dataframe("Input_files/input1.csv");
@@ -117,12 +117,19 @@ public class DataframeTest {
 		public void Exception1() throws Exception {
 				Dataframe dt = new Dataframe("Input_files/input3.csv");		
 		}
-
+		
 		@Test
-		public void select() throws Exception{
-			Dataframe dt = new Dataframe("Input_files/input2.csv");
+		public void selectColumn_ColumnSize() throws Exception{
+			Dataframe dt = new Dataframe("Input_files/input4.csv");
 			Dataframe dt2 = dt.selectColumns("MyString","MyFloat");
-			assertEquals(dt2.getColumnSize(),2);	
+			assertEquals(dt2.getColumnSize(),2);
+		}
+		
+		@Test
+		public void selectColumn_LineSize() throws Exception{
+			Dataframe dt = new Dataframe("Input_files/input4.csv");
+			Dataframe dt2 = dt.selectColumns("MyInteger","MyFloat");
+			assertEquals(dt2.getLineSize(),7);
 		}
 		
 		@Test
@@ -132,6 +139,8 @@ public class DataframeTest {
 			assertEquals(dt.means()[1],3.0,0.01);
 			assertEquals(dt.means()[2],4.4,0.01);				
 		}
+		
+		
 		
 		@Test 
 		public void maxtest() throws Exception{
@@ -168,5 +177,7 @@ public class DataframeTest {
 	        }
 			assertEquals(bool,true);
 		}
+		
+		
 		
 }
